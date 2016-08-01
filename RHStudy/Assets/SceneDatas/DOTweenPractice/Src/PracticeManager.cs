@@ -1,7 +1,9 @@
 ﻿namespace DGPractice
 {
-using UnityEngine;
 using System.Collections;
+using DG.Tweening;
+using UnityEngine;
+
 
 public class PracticeManager : MonoBehaviour
 {
@@ -10,9 +12,10 @@ public class PracticeManager : MonoBehaviour
 
 
 
-
-
-
+  private void Start()
+  {
+    
+  }
     
 }
 }
