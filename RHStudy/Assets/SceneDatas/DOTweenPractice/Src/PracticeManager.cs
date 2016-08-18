@@ -3,15 +3,18 @@
 using System.Collections;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PracticeManager : MonoBehaviour
 {
 
   public RectTransform button;
+  public Text scoreText;
 
 
   private bool onClick = false;
+  private int scoreNum = 0;
 
   /// ボタン押下処理
   public void OnClick()
@@ -22,6 +25,9 @@ public class PracticeManager : MonoBehaviour
   /// 初期化処理
   private IEnumerator Start()
   {
+
+    this.scoreText.text = "score:0";
+
     yield return new WaitForSeconds(1.0f);
     
     Tweener tween = this.button.DOLocalMoveY(-200f, 0.5f).SetEase(Ease.Linear);
@@ -30,7 +36,11 @@ public class PracticeManager : MonoBehaviour
 
     yield return new WaitUntil(() => this.onClick);
 
-    tween = this.button.DOScale(0f, 1.0f);
+    tween = this.button.DOScale(0f, 1.0f).OnComplete(() =>
+      {
+        this.button.localPosition = new Vector3(0f, -360f, 0f);
+        this.button.localScale = Vector3.one;
+      });
 
     yield return 0;
   }
