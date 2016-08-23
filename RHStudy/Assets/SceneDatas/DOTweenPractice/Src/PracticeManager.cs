@@ -28,6 +28,8 @@ public class PracticeManager : MonoBehaviour
 
     this.scoreText.text = "score:0";
 
+    DOTween.To(() => this.scoreNum, x => this.scoreNum = x, 10000, 1.5f).SetEase(Ease.Linear);
+
     yield return new WaitForSeconds(1.0f);
     
     Tweener tween = this.button.DOLocalMoveY(-200f, 0.5f).SetEase(Ease.Linear);
@@ -43,6 +45,12 @@ public class PracticeManager : MonoBehaviour
       });
 
     yield return 0;
+  }
+
+  /// 更新処理
+  private void Update()
+  {
+    this.scoreText.text = string.Format("Score:{0:##,##0}", this.scoreNum);
   }
     
 }
