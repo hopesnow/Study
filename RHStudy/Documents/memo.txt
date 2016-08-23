@@ -14,3 +14,9 @@
   こんなのもあるよ
   ↓
   何がいいのか(利点)
+
+
+その他
+  DOText
+  DOFade
+  DOColor
