@@ -15,6 +15,7 @@ public class PracticeManager : MonoBehaviour
 
   private bool onClick = false;
   private int scoreNum = 0;
+  private bool endFlg = false;
 
   /// ボタン押下処理
   public void OnClick()
@@ -27,14 +28,32 @@ public class PracticeManager : MonoBehaviour
   {
 
     this.scoreText.text = "score:0";
+    this.button.GetComponent<Button>().enabled = false;
 
     DOTween.To(() => this.scoreNum, x => this.scoreNum = x, 10000, 1.5f).SetEase(Ease.Linear);
 
     yield return new WaitForSeconds(1.0f);
     
-    Tweener tween = this.button.DOLocalMoveY(-200f, 0.5f).SetEase(Ease.Linear);
+    Tweener tween = this.button.DOLocalMoveY(-200f, 0.5f).SetEase(Ease.Linear)
+      .OnComplete(() => this.button.GetComponent<Button>().enabled = true);
 
     yield return tween.WaitForCompletion();
+
+
+    /*
+    this.button.DOLocalMoveY(-200f, 0.5f)
+      .OnComplete(() => this.button.DOLocalMoveX(-100f, 0.5f))
+      .OnComplete(() => this.button.DOLocalMoveY(-200f, 0.5f))
+      .OnComplete(() => this.endFlg = true);
+    */
+
+    /*
+    Sequence seq = DOTween.Sequence();
+    seq.Append(this.button.DOLocalMoveY(-100f, 0.5f))
+      .Append(this.button.DOLocalMoveX(-100f, 0.5f))
+      .AppendInterval(1.0f)
+      .Append(this.button.DOLocalMoveY(-200f, 0.5f));
+    */
 
     yield return new WaitUntil(() => this.onClick);
 
@@ -52,6 +71,7 @@ public class PracticeManager : MonoBehaviour
   {
     this.scoreText.text = string.Format("Score:{0:##,##0}", this.scoreNum);
   }
-    
+
+
 }
 }
