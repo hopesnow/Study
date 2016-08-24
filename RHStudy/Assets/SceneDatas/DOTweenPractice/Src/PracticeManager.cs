@@ -5,17 +5,17 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-
 public class PracticeManager : MonoBehaviour
 {
 
   public RectTransform button;
   public Text scoreText;
 
+  public Image[] lamps;
+
 
   private bool onClick = false;
   private int scoreNum = 0;
-  private bool endFlg = false;
 
   /// ボタン押下処理
   public void OnClick()
@@ -27,10 +27,11 @@ public class PracticeManager : MonoBehaviour
   private IEnumerator Start()
   {
 
-    this.scoreText.text = "score:0";
+    this.scoreText.text = "score:10,000";
+    this.scoreNum = 10000;
     this.button.GetComponent<Button>().enabled = false;
 
-    DOTween.To(() => this.scoreNum, x => this.scoreNum = x, 10000, 1.5f).SetEase(Ease.Linear);
+    DOTween.To(() => this.scoreNum, x => this.scoreNum = x, 0, 1.5f).SetEase(Ease.Linear);
 
     yield return new WaitForSeconds(1.0f);
     
@@ -38,7 +39,6 @@ public class PracticeManager : MonoBehaviour
       .OnComplete(() => this.button.GetComponent<Button>().enabled = true);
 
     yield return tween.WaitForCompletion();
-
 
     /*
     this.button.DOLocalMoveY(-200f, 0.5f)
@@ -55,9 +55,39 @@ public class PracticeManager : MonoBehaviour
       .Append(this.button.DOLocalMoveY(-200f, 0.5f));
     */
 
+    /*
+    Sequence seq = DOTween.Sequence();
+    seq.OnStart(() => 
+      {
+        this.OnRightWalk();
+      });
+    seq.Append(this.button.DOLocalMoveY(200f, 1f));
+    seq.OnComplete(this.OnEndWalk);
+    */
+
     yield return new WaitUntil(() => this.onClick);
 
-    tween = this.button.DOScale(0f, 1.0f).OnComplete(() =>
+    Sequence lampSeq = DOTween.Sequence();
+    Tween tmp;
+    lampSeq.AppendInterval((lamps.Length + 1) * 1f);
+    for(int i = 0;i < lamps.Length;i++)
+    {
+      tmp = DOTween.To(() => this.lamps[i].color.a, value =>
+        {
+          this.lamps[i].color = new Color(1f, 0f, 0f, value);
+        }, 1f, 0.5f);
+      lampSeq.Insert(1f * (i + 1), tmp);
+      tmp = DOTween.To(() => this.lamps[i].color.g, value =>
+        {
+          this.lamps[i].color = new Color(1 - value, value, 0f, 1f);
+        }, 1f, 0.5f);
+      lampSeq.Join(tmp);
+    }
+    lampSeq.Play();
+
+    Sequence clickSeq = DOTween.Sequence();
+    clickSeq.Append(this.button.DOScale(0f, 1.0f));
+    clickSeq.AppendCallback(()=>
       {
         this.button.localPosition = new Vector3(0f, -360f, 0f);
         this.button.localScale = Vector3.one;
@@ -72,6 +102,13 @@ public class PracticeManager : MonoBehaviour
     this.scoreText.text = string.Format("Score:{0:##,##0}", this.scoreNum);
   }
 
+  private void OnRightWalk()
+  {
+  }
+
+  private void OnEndWalk()
+  {
+  }
 
 }
 }

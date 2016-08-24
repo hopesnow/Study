@@ -21,4 +21,12 @@
 その他
   DOText
   DOFade
+    CanvasGroup
   DOColor
+
+
+  sequence.Join(Tween)
+    Joinは前述のAppendと同時
+  sequence.Insert(float, Tween)
+    InsertはtimePositionの場所に挟み込むイメージ
+  sequence.InsertCallback(float, TweenCallback)
