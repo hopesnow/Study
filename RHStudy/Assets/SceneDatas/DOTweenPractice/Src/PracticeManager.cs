@@ -62,24 +62,25 @@ public class PracticeManager : MonoBehaviour
     bool tmpFlg = false;
 
 
-    // ex.)all
-    /*
+    // ex.)join
+//    /*
     Sequence seq = DOTween.Sequence();
     seq.Append(this.button.DOLocalMoveX(200f, 1f));
     seq.Join(this.button.DOLocalMoveY(100f, 1f));
     seq.AppendInterval(0.5f);
     seq.Join(this.button.DOPunchScale(Vector3.one * 0.2f, 0.5f));
-    seq.AppendCallback(() => tmpFlg = true);
-    */
+    seq.AppendCallback(() => {tmpFlg = true; this.OnStopEffect();});
+//    */
 
     // ex.)insert
+    /*
     Sequence seq = DOTween.Sequence();
     seq.Append(this.button.DOLocalMoveX(200f, 1f));
     seq.AppendInterval(0.5f);
     seq.AppendCallback(() => tmpFlg = true);
     seq.Insert(0.5f, this.button.DOLocalMoveY(100f, 0.5f));
     seq.InsertCallback(1f, this.OnStopEffect);
-
+    */
 
 
     /*
@@ -100,20 +101,21 @@ public class PracticeManager : MonoBehaviour
     Sequence lampSeq = DOTween.Sequence();
     Tween tmp;
     lampSeq.AppendInterval((lamps.Length + 1) * 1f);
+    // フェードで出現させる処理
     for(int i = 0;i < lamps.Length;i++)
     {
       tmp = this.lamps[i].DOFade(1f, 0.5f);
       lampSeq.Insert(1f * (i + 1), tmp);
-      // tmp = this.lamps[i].DOColor(Color.green, 1f);
-      // lampSeq.Join(tmp);
     }
     lampSeq.AppendInterval(1f);
+    // 色を変える処理
     foreach (Image img in lamps)
     {
       tmp = img.DOColor(Color.green, 0.5f);
       lampSeq.Join(tmp);
     }
     lampSeq.AppendInterval(3f);
+    // 画面外への移動処理
     foreach (Image img in lamps)
     {
       lampSeq.Join(img.transform.DOLocalMoveY(360f, 1f).SetEase(Ease.Linear));
