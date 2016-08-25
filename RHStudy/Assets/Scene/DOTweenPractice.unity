@@ -1819,7 +1819,7 @@ MonoBehaviour:
   - {fileID: 1844698241}
   - {fileID: 1383846431}
   - {fileID: 1085722331}
-  story: {fileID: 0}
+  story: {fileID: 1564466347}
 --- !u!1 &1517791488
 GameObject:
   m_ObjectHideFlags: 0

@@ -54,7 +54,8 @@ public class PracticeManager : MonoBehaviour
     this.button.DOLocalMoveY(-200f, 0.5f)
       .OnComplete(() => this.button.DOLocalMoveX(-100f, 0.5f))
       .OnComplete(() => this.button.DOLocalMoveY(-200f, 0.5f))
-      .OnComplete(() => this.endFlg = true);
+      .OnComplete(this.story.transform.DOLocalMoveX(200f, 0.5f));
+      // .OnComplete(() => this.endFlg = true);
     */
 
     /*
@@ -90,13 +91,13 @@ public class PracticeManager : MonoBehaviour
 
 
     /*
-    Sequence seq = DOTween.Sequence();
-    seq.OnStart(() => 
+    Sequence seq0 = DOTween.Sequence();
+    seq0.OnStart(() => 
       {
         this.OnRightWalk();
       });
-    seq.Append(this.button.DOLocalMoveY(200f, 1f));
-    seq.OnComplete(this.OnEndWalk);
+    seq0.Append(this.button.DOLocalMoveY(200f, 1f));
+    seq0.OnComplete(this.OnEndWalk);
     */
 
     yield return new WaitUntil(() => this.onClick);
@@ -127,6 +128,7 @@ public class PracticeManager : MonoBehaviour
       this.lampSeq.Join(img.transform.DOLocalMoveY(360f, 1f).SetEase(Ease.Linear));
     }
     this.lampSeq.Play();
+    
 #endif
 
     Sequence clickSeq = DOTween.Sequence();
