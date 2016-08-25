@@ -40,6 +40,8 @@ public class PracticeManager : MonoBehaviour
 
     yield return tween.WaitForCompletion();
 
+    yield return new WaitForSeconds(1f);
+
     /*
     this.button.DOLocalMoveY(-200f, 0.5f)
       .OnComplete(() => this.button.DOLocalMoveX(-100f, 0.5f))
@@ -54,6 +56,29 @@ public class PracticeManager : MonoBehaviour
       .AppendInterval(1.0f)
       .Append(this.button.DOLocalMoveY(-200f, 0.5f));
     */
+
+    bool tmpFlg = false;
+
+
+    // ex.)all
+    /*
+    Sequence seq = DOTween.Sequence();
+    seq.Append(this.button.DOLocalMoveX(200f, 1f));
+    seq.Join(this.button.DOLocalMoveY(100f, 1f));
+    seq.AppendInterval(0.5f);
+    seq.Join(this.button.DOPunchScale(Vector3.one * 0.2f, 0.5f));
+    seq.AppendCallback(() => tmpFlg = true);
+    */
+
+    // ex.)insert
+    Sequence seq = DOTween.Sequence();
+    seq.Append(this.button.DOLocalMoveX(200f, 1f));
+    seq.AppendInterval(0.5f);
+    seq.AppendCallback(() => tmpFlg = true);
+    seq.Insert(0.5f, this.button.DOLocalMoveY(100f, 0.5f));
+    seq.InsertCallback(1f, this.OnStopEffect);
+
+
 
     /*
     Sequence seq = DOTween.Sequence();
@@ -79,7 +104,7 @@ public class PracticeManager : MonoBehaviour
       lampSeq.Insert(1f * (i + 1), tmp);
       tmp = DOTween.To(() => this.lamps[i].color.g, value =>
         {
-          this.lamps[i].color = new Color(1 - value, value, 0f, 1f);
+          this.lamps[i].color = new Color(1.0f - value, value, 0f, 1f);
         }, 1f, 0.5f);
       lampSeq.Join(tmp);
     }
@@ -108,6 +133,12 @@ public class PracticeManager : MonoBehaviour
 
   private void OnEndWalk()
   {
+  }
+
+  private void OnStopEffect()
+  {
+    Debug.Log("StopEffect");
+    this.button.GetComponent<Image>().color = Color.yellow;
   }
 
 }
