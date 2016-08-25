@@ -5,3 +5,110 @@ RHStudy/Assembly-CSharp-firstpass.csproj
 RHStudy/Assembly-CSharp.csproj
 RHStudy/RHStudy.sln
 RHStudy/RHStudy.userprefs
+
+# DOTween Pro
+RHStudy/Assembly-CSharp-Editor.csproj
+RHStudy/Assets/Demigiant.meta
+RHStudy/Assets/Demigiant/DemiLib.meta
+RHStudy/Assets/Demigiant/DOTween.meta
+RHStudy/Assets/Demigiant/DOTweenPro Examples.meta
+RHStudy/Assets/Demigiant/DOTweenPro.meta
+RHStudy/Assets/Demigiant/readme_DOTweenPro.txt
+RHStudy/Assets/Demigiant/readme_DOTweenPro.txt.meta
+RHStudy/Assets/Demigiant/DemiLib/Core.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/DemiLib.dll
+RHStudy/Assets/Demigiant/DemiLib/Core/DemiLib.dll.mdb
+RHStudy/Assets/Demigiant/DemiLib/Core/DemiLib.dll.mdb.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/DemiLib.dll.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/DemiLib.xml
+RHStudy/Assets/Demigiant/DemiLib/Core/DemiLib.xml.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.dll
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.dll.mdb
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.dll.mdb.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.dll.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.xml
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/DemiEditor.xml.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquare.png
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquare.png.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha10.png
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha10.png.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha25.png
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha25.png.meta
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha50.png
+RHStudy/Assets/Demigiant/DemiLib/Core/Editor/Imgs/whiteSquareAlpha50.png.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween.dll
+RHStudy/Assets/Demigiant/DOTween/DOTween.dll.mdb
+RHStudy/Assets/Demigiant/DOTween/DOTween.dll.mdb.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween.dll.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween.XML
+RHStudy/Assets/Demigiant/DOTween/DOTween.XML.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween43.dll
+RHStudy/Assets/Demigiant/DOTween/DOTween43.dll.mdb
+RHStudy/Assets/Demigiant/DOTween/DOTween43.dll.mdb.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween43.dll.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween43.xml
+RHStudy/Assets/Demigiant/DOTween/DOTween43.xml.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween46.dll
+RHStudy/Assets/Demigiant/DOTween/DOTween46.dll.mdb
+RHStudy/Assets/Demigiant/DOTween/DOTween46.dll.mdb.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween46.dll.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween46.xml
+RHStudy/Assets/Demigiant/DOTween/DOTween46.xml.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween50.dll
+RHStudy/Assets/Demigiant/DOTween/DOTween50.dll.mdb
+RHStudy/Assets/Demigiant/DOTween/DOTween50.dll.mdb.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween50.dll.meta
+RHStudy/Assets/Demigiant/DOTween/DOTween50.xml
+RHStudy/Assets/Demigiant/DOTween/DOTween50.xml.meta
+RHStudy/Assets/Demigiant/DOTween/Editor.meta
+RHStudy/Assets/Demigiant/DOTween/readme.txt
+RHStudy/Assets/Demigiant/DOTween/readme.txt.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll
+RHStudy/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb
+RHStudy/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll.mdb.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/DOTweenEditor.dll.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/DOTweenEditor.XML
+RHStudy/Assets/Demigiant/DOTween/Editor/DOTweenEditor.XML.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/DOTweenIcon.png.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/Footer.png
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/Footer.png.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/Footer_dark.png
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/Footer_dark.png.meta
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/Header.jpg
+RHStudy/Assets/Demigiant/DOTween/Editor/Imgs/Header.jpg.meta
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenAnimation.cs
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenAnimation.cs.meta
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenPro.dll
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenPro.dll.mdb
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenPro.dll.mdb.meta
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenPro.dll.meta
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenPro.XML
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenPro.XML.meta
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenTextMeshPro.cs.addon
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenTextMeshPro.cs.addon.meta
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenTk2d.cs.addon
+RHStudy/Assets/Demigiant/DOTweenPro/DOTweenTk2d.cs.addon.meta
+RHStudy/Assets/Demigiant/DOTweenPro/Editor.meta
+RHStudy/Assets/Demigiant/DOTweenPro/readme.txt
+RHStudy/Assets/Demigiant/DOTweenPro/readme.txt.meta
+RHStudy/Assets/Demigiant/DOTweenPro Examples/DOTweenAnimation_Advanced.unity
+RHStudy/Assets/Demigiant/DOTweenPro Examples/DOTweenAnimation_Advanced.unity.meta
+RHStudy/Assets/Demigiant/DOTweenPro Examples/DOTweenAnimation_Basics.unity
+RHStudy/Assets/Demigiant/DOTweenPro Examples/DOTweenAnimation_Basics.unity.meta
+RHStudy/Assets/Demigiant/DOTweenPro Examples/DOTweenPath.unity
+RHStudy/Assets/Demigiant/DOTweenPro Examples/DOTweenPath.unity.meta
+RHStudy/Assets/Demigiant/DOTweenPro Examples/Examples Assets.meta
+RHStudy/Assets/Demigiant/DOTweenPro Examples/Examples Assets/dotweenpro_logo.png
+RHStudy/Assets/Demigiant/DOTweenPro Examples/Examples Assets/dotweenpro_logo.png.meta
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.cs
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenAnimationInspector.cs.meta
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll.mdb
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll.mdb.meta
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.dll.meta
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.XML
+RHStudy/Assets/Demigiant/DOTweenPro/Editor/DOTweenProEditor.XML.meta
