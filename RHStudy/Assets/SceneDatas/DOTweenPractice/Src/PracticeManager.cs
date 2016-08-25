@@ -2,7 +2,9 @@
 
 namespace DGPractice
 {
+using System;
 using System.Collections;
+using System.Text;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,9 +17,13 @@ public class PracticeManager : MonoBehaviour
 
   public Image[] lamps;
 
+  public Text story;
+
 
   private bool onClick = false;
   private int scoreNum = 0;
+
+  private Sequence lampSeq;
 
   /// ボタン押下処理
   public void OnClick()
@@ -98,29 +104,29 @@ public class PracticeManager : MonoBehaviour
 
     // Pro Only
 #if USE_DOTWEEN_PRO
-    Sequence lampSeq = DOTween.Sequence();
+    this.lampSeq = DOTween.Sequence();
     Tween tmp;
-    lampSeq.AppendInterval((lamps.Length + 1) * 1f);
+    this.lampSeq.AppendInterval((lamps.Length + 1) * 1f);
     // フェードで出現させる処理
     for(int i = 0;i < lamps.Length;i++)
     {
       tmp = this.lamps[i].DOFade(1f, 0.5f);
-      lampSeq.Insert(1f * (i + 1), tmp);
+      this.lampSeq.Insert(1f * (i + 1), tmp);
     }
-    lampSeq.AppendInterval(1f);
+    this.lampSeq.AppendInterval(1f);
     // 色を変える処理
     foreach (Image img in lamps)
     {
       tmp = img.DOColor(Color.green, 0.5f);
-      lampSeq.Join(tmp);
+      this.lampSeq.Join(tmp);
     }
-    lampSeq.AppendInterval(3f);
+    this.lampSeq.AppendInterval(3f);
     // 画面外への移動処理
     foreach (Image img in lamps)
     {
-      lampSeq.Join(img.transform.DOLocalMoveY(360f, 1f).SetEase(Ease.Linear));
+      this.lampSeq.Join(img.transform.DOLocalMoveY(360f, 1f).SetEase(Ease.Linear));
     }
-    lampSeq.Play();
+    this.lampSeq.Play();
 #endif
 
     Sequence clickSeq = DOTween.Sequence();
@@ -131,6 +137,17 @@ public class PracticeManager : MonoBehaviour
         this.button.localScale = Vector3.one;
       });
 
+    yield return this.lampSeq.WaitForCompletion();
+
+    Debug.Log("aaa");
+
+    string storyText = "ご清聴\nありがとうございました。";
+    // string emptyText = "　　　\n　　　　　　　　　　　　";
+    string emptyText = this.ToEmptyStrings(storyText);
+
+    this.story.text = emptyText;
+    this.story.DOText(storyText, storyText.Length * 0.15f).SetEase(Ease.Linear);
+
     yield return 0;
   }
 
@@ -138,6 +155,8 @@ public class PracticeManager : MonoBehaviour
   private void Update()
   {
     this.scoreText.text = string.Format("Score:{0:##,##0}", this.scoreNum);
+    // if(lampSeq != null)
+    //   Debug.Log("lamp sequence is Playing : " + lampSeq.IsPlaying());
   }
 
   private void OnRightWalk()
@@ -152,6 +171,28 @@ public class PracticeManager : MonoBehaviour
   {
     Debug.Log("StopEffect");
     this.button.GetComponent<Image>().color = Color.yellow;
+  }
+
+  private string ToEmptyStrings(string str)
+  {
+    string result = string.Empty;
+    foreach (char c in str)
+    {
+      if (c == '\n')
+      {
+        result += c;
+        continue;
+      }
+      else if (Encoding.GetEncoding("shift_jis").GetByteCount(c.ToString()) == 1)
+      {
+        result += " ";
+      }
+      else
+      {
+        result += "　";
+      }
+    }
+    return result;
   }
 
 }
