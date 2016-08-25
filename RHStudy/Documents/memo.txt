@@ -30,3 +30,6 @@
   sequence.Insert(float, Tween)
     InsertはtimePositionの場所に挟み込むイメージ
   sequence.InsertCallback(float, TweenCallback)
+
+.Joinは直前のやつに付随する
+直前がinsertでも。

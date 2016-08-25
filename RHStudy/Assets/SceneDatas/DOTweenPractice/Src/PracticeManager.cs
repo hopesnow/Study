@@ -1,4 +1,6 @@
-﻿namespace DGPractice
+﻿#define USE_DOTWEEN_PRO
+
+namespace DGPractice
 {
 using System.Collections;
 using DG.Tweening;
@@ -92,23 +94,32 @@ public class PracticeManager : MonoBehaviour
 
     yield return new WaitUntil(() => this.onClick);
 
+
+    // Pro Only
+#if USE_DOTWEEN_PRO
     Sequence lampSeq = DOTween.Sequence();
     Tween tmp;
     lampSeq.AppendInterval((lamps.Length + 1) * 1f);
     for(int i = 0;i < lamps.Length;i++)
     {
-      tmp = DOTween.To(() => this.lamps[i].color.a, value =>
-        {
-          this.lamps[i].color = new Color(1f, 0f, 0f, value);
-        }, 1f, 0.5f);
+      tmp = this.lamps[i].DOFade(1f, 0.5f);
       lampSeq.Insert(1f * (i + 1), tmp);
-      tmp = DOTween.To(() => this.lamps[i].color.g, value =>
-        {
-          this.lamps[i].color = new Color(1.0f - value, value, 0f, 1f);
-        }, 1f, 0.5f);
+      // tmp = this.lamps[i].DOColor(Color.green, 1f);
+      // lampSeq.Join(tmp);
+    }
+    lampSeq.AppendInterval(1f);
+    foreach (Image img in lamps)
+    {
+      tmp = img.DOColor(Color.green, 0.5f);
       lampSeq.Join(tmp);
     }
+    lampSeq.AppendInterval(3f);
+    foreach (Image img in lamps)
+    {
+      lampSeq.Join(img.transform.DOLocalMoveY(360f, 1f).SetEase(Ease.Linear));
+    }
     lampSeq.Play();
+#endif
 
     Sequence clickSeq = DOTween.Sequence();
     clickSeq.Append(this.button.DOScale(0f, 1.0f));
