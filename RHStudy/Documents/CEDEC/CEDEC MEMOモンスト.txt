@@ -1,0 +1,156 @@
+CEDEC2016
+・モンスターストライクを支える負荷分散手法
+
+Hiroki Ohtsuka
+Mixi , XFLAG Studio Tanpopo Team
+
+Agenda
+  Monitoring system
+  How to scale-out
+  Cache
+
+Monitoring system
+  存在感氏だけでは不足
+
+  負荷の原因を特定する材料
+  効果的な対策を判断するため
+
+何を計測すべきか
+  リソース
+    CPU,Memory,I/O
+    Status in App/Database
+      Active/Query Count/Slow/Threads/ROW OPE/tmp/mutex/etc
+  パフォーマンス
+    API
+
+リソースを何で計測するか？
+  Tool
+    CloudForecast/Kurado/Cacti/Ganglia/Munin/Zabbix
+  Service
+    mackerel/New Relic
+  Pull型よりもPush型がおすすめ
+  それぞれ計測できるものが微妙に違う（要拡張）
+パフォーマンスを何で計測するか
+  API
+    Nginx -> Log -> fluentd -> ElasticSearch
+  Database
+    Arproxy -> Log -> fluentd -> ElasticSearch
+
+まとめ
+  すべて必要なのか
+    最低でもリソース情報は欲しい
+  効果的な対策を取捨選択して実施
+    ビジネスの継続・推進が優先
+  「憶測するな、計測せよ」
+
+
+How to scale-out
+
+scale-out database
+  なぜdatabaseの話をするのか？
+    ボトルネックになりやすいポイント
+    事前設計をしておかないとコストが高い
+      コードの修正
+      データ移行+メンテナンスタイム
+
+
+Fix at before Scale-out
+  slow query
+    index貼り忘れ
+      logqueriesnotusingindexes
+    innodbbufferpoolの調整
+    N + 1 query
+      flyerhzm/bullet
+
+Database分割
+  垂直分割
+  水平分割
+    Sharding
+
+
+垂直分割
+  テーブルごと別なDBへ移動
+    手順：Slaveから別DBとして稼働
+
+Sharing
+  テーブルのレコードを特定のアルゴリズムによって分割キーを決定し、複数のDBに分散させる手法
+  modulo/range/list/hash
+
+modulo
+  idなどを元にDB数でmodulo演算した結果利用して分割
+
+既存のライブラリなど
+  Octopus/db-charmer/activerecord-turntable
+    ARの中身に変更を加えているとVerupコストが高い
+    知見のあるArchitectureを採用したかった
+  Simpleな実装と制御のほうが運用しやすい
+    コードを書く人間が直感的にわかるほうが安心
+    暗黙的に制御される構造に依存しない
+
+Architecture
+  sequencerにアクセス
+  generate id
+  nodeにアクセス
+
+Sharing middlewareは
+
+まとめ
+  サービスにあったアルゴリズム
+
+FAQ
+  DBをScaleoutするときは？
+  *2で増やしていく
+
+Cache
+  Ruby object cache
+  大半がActiveRecord(ORM)Object
+
+How to ccacheing
+  Rails.cachee
+
+
+  Shopify/identity_cache
+
+Cache timing
+  ２種類のタイミング
+    After comit
+    read database
+
+Cache association
+
+Cache association(ids base)
+  itemsにidsを取得するQuesryが必ず走る
+
+
+
+Cache trafic
+  特定のcache keyにアクセスが多い
+  保持しているcache serverにアクセスが集中する問題
+
+  Cache keyに自動的にsuffixなどを付加して分散させる
+
+  ランダムにCache keyにsuffixを付与してget
+  取得できなかった場合は他の値を付与してretry（対障害）
+
+  アクセスのトラフィック分散
+
+Cache pool
+  2 pool Active/Stanby
+    Hot swap for pool
+    ノード数変更のcache missを防ぐ
+    障害児のリスクを最小限にする
+
+    active pool (R/W)
+    Stanbay pool Write
+
+まとめ
+  データの特性にあわせて利用するcache方法を選択する
+    Cache timingu (before commit / read DB)
+    Cache assosiation (Embeded to parent / ids base)
+
+  Cache trafficをコントロールする
+
+
+
+Reference ActiveRecord::Sharding
+  github: hirocaster/activerecord-sharding
