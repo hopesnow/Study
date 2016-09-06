@@ -15,3 +15,6 @@ TMPメモ
 ・3D空間の描画をする？
 
 ・実際のプロジェクトや作成したプロジェクト
+
+TextMeshProの公式ドキュメント？
+http://digitalnativestudios.com/
