@@ -18,3 +18,9 @@ TMPメモ
 
 TextMeshProの公式ドキュメント？
 http://digitalnativestudios.com/
+
+DOFade
+DOColor
+DOMaxVisibleCharacters
+DOText
+DOOutLineColor
