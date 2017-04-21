@@ -1,0 +1,11 @@
+How To Do
+
+https://landho.qiita.com/udonsky/items/af614236b6184855eba4
+
+$ mcs test.cs
+でコンパイル test.exeが作成される
+$ mono test.exe
+で実行
+
+http://www.mono-project.com/download/
+mono framework MDKが必要
