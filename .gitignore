@@ -6,6 +6,8 @@ RHStudy/Assembly-CSharp.csproj
 RHStudy/RHStudy.sln
 RHStudy/RHStudy.userprefs
 
+Build/
+
 # DOTween Pro
 RHStudy/Assembly-CSharp-Editor.csproj
 RHStudy/Assets/Demigiant.meta
