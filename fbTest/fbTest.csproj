@@ -132,8 +132,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Script\ChatManager.cs" />
+    <Compile Include="Assets\Script\AuthManager.cs" />
     <Compile Include="Assets\Script\ChatMessageModel.cs" />
+    <Compile Include="Assets\Script\ChatPresenter.cs" />
+    <Compile Include="Assets\Script\DatabaseManager.cs" />
     <Compile Include="Assets\Script\MessagePresenter.cs" />
   </ItemGroup>
   <ItemGroup>

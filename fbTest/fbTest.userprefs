@@ -1,9 +1,11 @@
 ﻿<Properties StartupConfiguration="{EDB04099-83F1-7607-360C-F129E31E5769}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/MessagePresenter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Script/DatabaseManager.cs">
     <Files>
-      <File FileName="Assets/Script/ChatManager.cs" Line="98" Column="61" />
-      <File FileName="Assets/Script/ChatMessageModel.cs" Line="20" Column="20" />
-      <File FileName="Assets/Script/MessagePresenter.cs" Line="14" Column="9" />
+      <File FileName="Assets/Script/AuthManager.cs" Line="3" Column="5" />
+      <File FileName="Assets/Script/ChatMessageModel.cs" Line="30" Column="6" />
+      <File FileName="Assets/Script/DatabaseManager.cs" Line="8" Column="21" />
+      <File FileName="Assets/Script/MessagePresenter.cs" Line="22" Column="16" />
+      <File FileName="Assets/Script/ChatPresenter.cs" Line="11" Column="32" NotebookId="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
